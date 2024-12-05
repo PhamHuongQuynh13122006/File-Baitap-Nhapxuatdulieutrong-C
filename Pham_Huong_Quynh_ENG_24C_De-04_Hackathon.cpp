@@ -46,6 +46,46 @@ switch(choice){
             break;
           // Dem so luong cac so hoan hao co trong mang. Biet so hoan hao la so co tong cac uoc bang chinh no
           case 3:
+          if(n == 0){
+            printf("Array is empty ^ ^\n");
+          } else {
+          int count = 0;
+          for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = 1; j <= arr[i] / 2; j++) {
+                if (arr[i] % j == 0) {
+                    sum += j;
+                }
+            }
+            if (sum == arr[i]) { 
+                count++;
+            }
+           }
+            printf("So luong cac so hoan hao trong mang: %d\n", count);
+          }
+           break;
+            //Tim gia tri lon thu hai trong mang, khong duoc sap xep mang
+           case 4:
+           if (n < 2) {
+           printf("Khong du hai phan tu !!!\n");
+           break;
+           }
+           int max = arr[0];
+           int maxtwo = -1;
+           for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                maxtwo = max;
+                max = arr[i];
+            } else if (arr[i] > maxtwo && arr[i] != max) {
+                maxtwo = arr[i];
+            }
+            }
+            if (maxtwo == -1) {
+                 printf("Khong co gia tri lon thu hai !!!\n");
+            } else {
+                printf("Gia tri lon thu hai trong mang la: %d\n", maxtwo);
+            }
+            break;
           // Them mot phan tu vao vi tri ngau nhien trong mang, phan tu moi them vao mang va vi tri them vao phai do nguoi dung nhap vao
           case 5:
             if(n < 100){
@@ -75,6 +115,7 @@ switch(choice){
                 }
             }
             break;
+            //Sap xep cac mang theo thu tu tang dan( (Insertion sort)
              case 7:
             if(n == 0){
                 printf("Array is emply ^ ^");
@@ -93,6 +134,7 @@ switch(choice){
                 }
             }
             break;
+            // Cho nguoi dung nhap vao mot phan tu , tim kiem phan tu do co ton tai trong mang hay khong(Binary search)
             case 8:
             if(n == 0){
                 printf("Array is emply ^ ^");
